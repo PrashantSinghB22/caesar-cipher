@@ -1,0 +1,25 @@
+# Python-generated files
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+
+# Environment variables and secrets
+.env
+
+# Testing and coverage artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Editor and operating-system files
+.vscode/
+.DS_Store
+Thumbs.db
