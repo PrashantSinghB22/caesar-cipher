@@ -70,4 +70,4 @@ testing, and troubleshooting.
 
 ## License
 
-A license will be added when the project is ready for publication.
+A license will be added when the project is ready for publication.~
