@@ -1,13 +1,3 @@
-def encrypt_message(message, shift):
-    encrypted_message = ""
-
-    for character in message:
-        encrypted_character = encrypt_letter(character, shift)
-
-        encrypted_message += encrypted_character
-
-    return encrypted_message
-
 def encrypt_letter(letter, shift):
     if "A" <= letter <= "Z":
         alphabet_start = ord("A")
@@ -24,7 +14,36 @@ def encrypt_letter(letter, shift):
 
     return encrypted_letter
 
-print(encrypt_message("HELLO", 3))
-print(encrypt_message("Hello World", 3))
-print(encrypt_message("Hello, World! 123", 3))
-print(encrypt_message("xyz XYZ", 3))
+
+def encrypt_message(message, shift):
+    encrypted_message = ""
+
+    for character in message:
+        encrypted_character = encrypt_letter(character, shift)
+
+        encrypted_message += encrypted_character
+
+    return encrypted_message
+
+
+
+def decrypt_letter(letter, shift):
+    return encrypt_letter(letter, -shift)
+
+
+def decrypt_message(message, shift):
+    return encrypt_message(message, -shift)
+
+
+message = "Hello, World! 123"
+shift = 3
+
+encrypted = encrypt_message(message, shift)
+decrypted = decrypt_message(encrypted, shift)
+
+print("Original:", message)
+print("Encrypted:", encrypted)
+print("Decrypted:", decrypted)
+print(decrypt_message("KHOOR", 3))
+print(decrypt_message("Khoor Zruog!", 3))
+print(decrypt_message("abc XYZ", 3))
