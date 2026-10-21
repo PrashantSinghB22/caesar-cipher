@@ -35,15 +35,30 @@ def decrypt_message(message, shift):
     return encrypt_message(message, -shift)
 
 
-message = "Hello, World! 123"
-shift = 3
+def main():
+    print("================================")
+    print("       CAESAR CIPHER TOOL")
+    print("================================")
 
-encrypted = encrypt_message(message, shift)
-decrypted = decrypt_message(encrypted, shift)
+    print("\nChoose an operation:")
+    print("1. Encrypt a message")
+    print("2. Decrypt a message")
 
-print("Original:", message)
-print("Encrypted:", encrypted)
-print("Decrypted:", decrypted)
-print(decrypt_message("KHOOR", 3))
-print(decrypt_message("Khoor Zruog!", 3))
-print(decrypt_message("abc XYZ", 3))
+    choice = input("\nEnter your choice: ")
+
+    if choice == "1" or choice == "2":
+        message = input("Enter your message: ")
+        shift = int(input("Enter shift value: "))
+
+        if choice == "1":
+            result = encrypt_message(message, shift)
+            print("Encrypted message:", result)
+        else:
+            result = decrypt_message(message, shift)
+            print("Decrypted message:", result)
+
+    else:
+        print("Invalid choice. Please select 1 or 2.")
+
+if __name__ == "__main__":
+    main()
