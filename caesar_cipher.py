@@ -48,7 +48,13 @@ def main():
 
     if choice == "1" or choice == "2":
         message = input("Enter your message: ")
-        shift = int(input("Enter shift value: "))
+
+        try:
+            shift = int(input("Enter shift value: "))
+
+        except ValueError:
+            print("Invalid shift value. Please enter a whole number.")
+            return
 
         if choice == "1":
             result = encrypt_message(message, shift)
