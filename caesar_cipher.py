@@ -40,31 +40,34 @@ def main():
     print("       CAESAR CIPHER TOOL")
     print("================================")
 
-    print("\nChoose an operation:")
-    print("1. Encrypt a message")
-    print("2. Decrypt a message")
+    while True:
+        print("\nChoose an operation:")
+        print("1. Encrypt a message")
+        print("2. Decrypt a message")
 
-    choice = input("\nEnter your choice: ")
+        choice = input("\nEnter your choice: ")
 
-    if choice == "1" or choice == "2":
-        message = input("Enter your message: ")
+        if choice == "1" or choice == "2":
+            break
 
+        print("Invalid choice. Please select 1 or 2.")
+
+    message = input("Enter your message: ")
+
+    while True:
         try:
             shift = int(input("Enter shift value: "))
+            break
 
         except ValueError:
             print("Invalid shift value. Please enter a whole number.")
-            return
 
-        if choice == "1":
-            result = encrypt_message(message, shift)
-            print("Encrypted message:", result)
-        else:
-            result = decrypt_message(message, shift)
-            print("Decrypted message:", result)
-
+    if choice == "1":
+        result = encrypt_message(message, shift)
+        print("Encrypted message:", result)
     else:
-        print("Invalid choice. Please select 1 or 2.")
+        result = decrypt_message(message, shift)
+        print("Decrypted message:", result)
 
 if __name__ == "__main__":
     main()
