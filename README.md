@@ -1,73 +1,195 @@
 # Caesar Cipher Encoder/Decoder
 
-A Python implementation of the Caesar cipher that encrypts and
-decrypts messages by shifting letters through the English alphabet.
+A command-line Caesar cipher implementation built with Python. Encrypt and decrypt messages using a configurable shift value while preserving uppercase and lowercase letters, spaces, numbers, and punctuation.
 
-This project is being developed step by step as part of a
-10-project Python learning journey.
+This project is part of a 10-project Python learning journey focused on understanding software by building it from scratch.
 
-## About the Project
+## Features
 
-The Caesar cipher is a classical substitution cipher.
+* **Message encryption:** Encrypt complete messages using a configurable shift.
+* **Message decryption:** Recover the original message using the corresponding shift.
+* **Case preservation:** Keep uppercase and lowercase letters in their original case.
+* **Character preservation:** Leave spaces, numbers, and punctuation unchanged.
+* **Alphabet wraparound:** Correctly handle shifts that pass the end of the alphabet.
+* **Interactive CLI:** Choose an operation and enter a message directly in the terminal.
+* **Input validation:** Handle invalid menu choices and non-numeric shift values.
+* **Automated testing:** Use pytest to verify encryption and decryption behavior.
 
-It works by shifting each letter in a message by a specified
-number of positions in the alphabet.
+## Example
+
+With a shift value of `3`:
+
+| Operation | Input               | Output              |
+| --------- | ------------------- | ------------------- |
+| Encrypt   | `Hello World`       | `Khoor Zruog`       |
+| Decrypt   | `Khoor Zruog`       | `Hello World`       |
+| Encrypt   | `Hello, World! 123` | `Khoor, Zruog! 123` |
+
+## How the Caesar Cipher Works
+
+The Caesar cipher encrypts a message by shifting each English letter through the alphabet.
 
 For example, with a shift of 3:
 
-- A becomes D.
-- B becomes E.
-- C becomes F.
-- HELLO becomes KHOOR.
+```text
+Original:  ABCDEFGHIJKLMNOPQRSTUVWXYZ
+Encrypted: DEFGHIJKLMNOPQRSTUVWXYZABC
+```
 
-When the shift reaches the end of the alphabet, it wraps around
-to the beginning.
+The alphabet wraps around at the end, so `X`, `Y`, and `Z` become `A`, `B`, and `C`, respectively.
 
-## Planned Features
+The implementation uses Python's `ord()` and `chr()` functions to work with character code points and modular arithmetic to handle alphabet wraparound.
 
-- Encrypt messages using a configurable shift value.
-- Decrypt previously encrypted messages.
-- Preserve uppercase and lowercase letters.
-- Leave spaces, numbers, and punctuation unchanged.
-- Handle letters near the end of the alphabet.
-- Validate user input.
-- Include automated tests.
+**Security note:** The Caesar cipher is a historical substitution cipher and is not suitable for protecting sensitive information.
 
-These features will be implemented and tested incrementally.
+## Requirements
 
-## Learning Objectives
+* Python 3
+* Git, if you want to clone the repository
+* pytest, for running the automated tests
 
-This project is designed to practise:
-
-- Python strings and character manipulation.
-- Variables, data types, loops, and conditionals.
-- Functions and return values.
-- Character encoding using `ord()` and `chr()`.
-- Modular arithmetic.
-- Input validation and error handling.
-- Automated testing.
-- Git and GitHub.
-- Writing clear technical documentation.
-
-## Project Status
-
-In development.
-
-The implementation and documentation will be updated as
-the project progresses.
+The application itself uses Python's standard library. Pytest is needed only for the test suite.
 
 ## Getting Started
 
-Setup and usage instructions will be added once the initial
-implementation is complete.
+### 1. Clone the repository
+
+Replace `YOUR-USERNAME` with the GitHub username that owns this repository.
+
+```bash
+git clone https://github.com/YOUR-USERNAME/caesar-cipher.git
+cd caesar-cipher
+```
+
+Alternatively, download the repository as a ZIP file from GitHub and extract it.
+
+### 2. Create a virtual environment
+
+A virtual environment keeps project-specific Python packages separate from other projects.
+
+**Windows PowerShell:**
+
+```powershell
+python -m venv .venv
+```
+
+**macOS or Linux:**
+
+```bash
+python3 -m venv .venv
+```
+
+### 3. Install pytest
+
+**Windows PowerShell:**
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install pytest
+```
+
+**macOS or Linux:**
+
+```bash
+./.venv/bin/python -m pip install pytest
+```
+
+### 4. Run the application
+
+**Windows PowerShell:**
+
+```powershell
+.\.venv\Scripts\python.exe caesar_cipher.py
+```
+
+**macOS or Linux:**
+
+```bash
+./.venv/bin/python caesar_cipher.py
+```
+
+Follow the menu instructions to encrypt or decrypt a message.
+
+Choose `1` to encrypt or `2` to decrypt, enter the message, and provide the shift value.
+
+### 5. Run the automated tests
+
+**Windows PowerShell:**
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest -v
+```
+
+**macOS or Linux:**
+
+```bash
+./.venv/bin/python -m pytest -v
+```
+
+The test suite checks important encryption and decryption behavior, including alphabet wraparound, lowercase letters, and preservation of non-letter characters.
+
+## Project Structure
+
+```text
+caesar-cipher/
+│
+├── caesar_cipher.py
+├── tests/
+│   └── test_caesar_cipher.py
+├── docs/
+│   └── LEARNING_GUIDE.md
+├── .gitignore
+└── README.md
+```
+
+The `.venv` and `.git` directories are omitted from this overview because they are local environment and version-control directories, respectively.
+
+### Main files
+
+* `caesar_cipher.py`: Contains the encryption and decryption functions and the command-line interface.
+* `tests/test_caesar_cipher.py`: Contains automated tests for the cipher operations.
+* `docs/LEARNING_GUIDE.md`: Documents the project-building process and the concepts needed to understand it.
+* `.gitignore`: Identifies files that Git should ignore.
 
 ## Learning Guide
 
-The `docs/LEARNING_GUIDE.md` document will eventually explain
-how to recreate the project from the beginning, including
-the prerequisites, implementation steps, code explanations,
-testing, and troubleshooting.
+Want to understand how the application was built?
+
+Read the [Step-by-Step Learning Guide](docs/LEARNING_GUIDE.md).
+
+The guide explains the project requirements, Python concepts, character shifting, modular arithmetic, encryption, decryption, input validation, testing, and independent reconstruction.
+
+It will be expanded as the project progresses.
+
+## Learning Objectives
+
+This project provides practical experience with:
+
+* Python strings and character manipulation.
+* Variables, data types, loops, and conditional statements.
+* Functions, parameters, and return values.
+* Character conversion using `ord()` and `chr()`.
+* Modular arithmetic.
+* Exception handling and input validation.
+* Automated testing with pytest.
+* Git and GitHub workflows.
+* Technical documentation.
+
+## Current Status
+
+The initial encryption, decryption, interactive interface, and automated tests have been implemented.
+
+The project is being developed incrementally, with further improvements to testing, code organization, and documentation planned.
+
+## Future Improvements
+
+Potential extensions include:
+
+* A clearer separation between application logic and user interaction.
+* Additional automated tests for edge cases and invalid input.
+* Improved command-line options.
+* More comprehensive troubleshooting documentation.
+* A complete guide for independently rebuilding the project.
 
 ## License
 
-A license will be added when the project is ready for publication.~
+No license has been added yet. A license will be selected before the project is finalized for publication.
