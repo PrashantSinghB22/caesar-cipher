@@ -174,22 +174,34 @@ This project provides practical experience with:
 * Git and GitHub workflows.
 * Technical documentation.
 
-## Current Status
+## Project Status
 
-The initial encryption, decryption, interactive interface, and automated tests have been implemented.
+**Version 1.0 — Initial Release Complete**
 
-The project is being developed incrementally, with further improvements to testing, code organization, and documentation planned.
+The initial version of the Caesar Cipher Encoder/Decoder is complete.
+
+It includes:
+
+* Encryption and decryption of complete messages.
+* Support for uppercase and lowercase English letters.
+* Preservation of spaces, numbers, and punctuation.
+* Correct alphabet wraparound.
+* An interactive command-line interface.
+* Input validation for menu choices and shift values.
+* Nine automated tests using pytest.
+* A step-by-step learning guide explaining how to build the project.
 
 ## Future Improvements
 
-Potential extensions include:
+The current version meets the project's initial requirements. Possible extensions include:
 
-* A clearer separation between application logic and user interaction.
-* Additional automated tests for edge cases and invalid input.
-* Improved command-line options.
-* More comprehensive troubleshooting documentation.
-* A complete guide for independently rebuilding the project.
+* Additional automated tests for unusual inputs.
+* Command-line arguments for non-interactive operation.
+* Improved separation of application logic and user interaction.
+* Additional exercises and troubleshooting examples in the learning guide.
+
+These are optional improvements, not requirements for completing Version 1.0.
 
 ## License
 
-No license has been added yet. A license will be selected before the project is finalized for publication.
+This repository does not currently include a license file.
