@@ -56,3 +56,41 @@ def test_encrypt_then_decrypt_returns_original():
     decrypted = decrypt_message(encrypted, shift)
 
     assert decrypted == message
+
+
+
+
+
+
+
+def test_zero_shift_keeps_message_unchanged():
+    message = "Hello, World!"
+
+    assert encrypt_message(message, 0) == message
+
+
+def test_shift_of_26_keeps_message_unchanged():
+    message = "Hello, World!"
+
+    assert encrypt_message(message, 26) == message
+
+
+def test_shift_larger_than_alphabet():
+    assert encrypt_message("ABC", 29) == "DEF"
+
+
+def test_negative_shift_moves_letters_backward():
+    assert encrypt_message("DEF", -3) == "ABC"
+
+
+def test_lowercase_wraparound():
+    assert encrypt_message("xyz", 3) == "abc"
+
+
+def test_empty_message():
+    assert encrypt_message("", 3) == ""
+    assert decrypt_message("", 3) == ""
+
+
+def test_non_english_letters_are_preserved():
+    assert encrypt_message("café!", 3) == "fdié!"
